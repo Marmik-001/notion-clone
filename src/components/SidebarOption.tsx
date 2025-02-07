@@ -4,8 +4,7 @@ import Link from "next/link";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import { db } from "../../firebase";
 import { usePathname } from "next/navigation";
-import path from "path";
-import { title } from "process";
+
 const SidebarOption = ({ href, id }: { href: string; id: string }) => {
 
 

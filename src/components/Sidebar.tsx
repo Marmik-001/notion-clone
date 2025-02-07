@@ -42,7 +42,7 @@ function Sidebar() {
       <NewDocumentButton />
 
       {/* my documents */}
-      <div className="flex py-4 flex-col space-y-4 md:max-w-36 overflow-x-clip">
+      <div className="flex py-4 flex-col space-y-4   lg:max-w-36 overflow-x-clip">
         {groupedData.owner.length === 0 ? (
           <h2 className="text-gray-500 font-semibold text-sm">
             {" "}
@@ -133,7 +133,7 @@ function Sidebar() {
           <SheetContent side={"left"}>
             <SheetHeader>
               <SheetTitle>Menu</SheetTitle>
-              <div className="flex ">
+              <div className="flex flex-col">
                 {/* options */}
                 {menuOptions}
               </div>
