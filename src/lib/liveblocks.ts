@@ -1,8 +1,7 @@
-import { Liveblocks } from '@liveblocks/node'
-import { log } from 'console';
+import { Liveblocks } from '@liveblocks/node';
 
 const key = process.env.LIVEBLOCKS_PRIVATE_KEY;
-log('huh')
+
 if(!key){
     throw new Error('LIVEBLOCKS_PRIVATE_KEY is not set');
 }

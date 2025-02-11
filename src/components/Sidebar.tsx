@@ -19,13 +19,14 @@ import {
 import { db } from "../../firebase";
 import { useEffect, useState } from "react";
 import SidebarOption from "./SidebarOption";
+import { log } from "console";
 
 //types
 
 interface RoomDocument extends DocumentData {
   createdAt: String;
   role: "owner" | "editor";
-  romId: string;
+  roomId: string; // if error changed romId to roomId
   userId: string;
 }
 
@@ -85,7 +86,7 @@ function Sidebar() {
     </>
   );
   const { user } = useUser();
-
+  
   const [data, loading, error] = useCollection(
     user &&
       query(
@@ -96,6 +97,7 @@ function Sidebar() {
 
   useEffect(() => {
     if (!data) return;
+    console.log(data.docs);
     const grouped = data.docs.reduce<{
       owner: RoomDocument[];
       editor: RoomDocument[];

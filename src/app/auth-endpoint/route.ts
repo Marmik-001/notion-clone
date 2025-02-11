@@ -2,10 +2,10 @@ import liveblocks from "@/lib/liveblocks";
 import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 import { adminDb } from "../../../firebase-admin";
-import { log } from "console";
+// import { log } from "console";
 
 export async function POST(req: NextRequest) {
-   await auth.protect();
+  await auth.protect();
 
   const { sessionClaims } = await auth();
   const { room } = await req.json();
@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     .collectionGroup("rooms")
     .where("userId", "==", sessionClaims?.email)
     .get();
-
+  // in a room among all users, find the user whose id is the same as the current user
   const userInRoom = usersInRoom.docs.find((doc) => doc.id === room);
 
   if (userInRoom?.exists) {
